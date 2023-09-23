@@ -1,0 +1,72 @@
+<div id="quiz" class="section">
+  <div class="section-center">
+    <div class="container">
+      <app-quiz
+        #quiz
+        [style.display]="showQuizScreen ? 'block' : 'none'"
+        (finalResult)="finalResult($event)"
+      ></app-quiz>
+
+      <app-result
+        #result
+        [style.display]="showResult ? 'block' : 'none'"
+      ></app-result>
+      <div
+        [style.display]="showMainMenu ? 'block' : 'none'"
+        class="row justify-content-md-center"
+      >
+        <div class="col-md-6 mx-auto">
+          <div class="quiz-form">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <span class="form-label">Dificultad</span>
+                  <select name="" class="form-control" [(ngModel)]="dificulty">
+                    <option>Facil</option>
+                    <option>Mediano</option>
+                    <option>Dificil</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <span class="form-label">Preguntas</span>
+                  <select
+                    name=""
+                    class="form-control"
+                    [(ngModel)]="questionsLimit"
+                  >
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-btn">
+              <button
+                class="submit-btn"
+                (click)="quizQuestions()"
+                *ngIf="!spinner"
+              >
+                Empezar Quiz
+              </button>
+              <button disabled type="button" class="submit-btn" *ngIf="spinner">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

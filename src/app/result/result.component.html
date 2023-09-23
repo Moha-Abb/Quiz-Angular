@@ -1,0 +1,35 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-6 mx-auto">
+    <div class="quiz-form">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group"></div>
+
+          <h1>Resultado</h1>
+          <hr />
+          <div class="row text-center">
+            <div class="col-md-4">
+              <div class="circle">{{ finalResult?.total }}</div>
+              <p>Total</p>
+            </div>
+            <div class="col-md-4">
+              <div class="circle">{{ finalResult?.correct }}</div>
+              <p>Correctos</p>
+            </div>
+            <div class="col-md-4">
+              <div class="circle">{{ finalResult?.wrong }}</div>
+              <p>Fallos</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary mt-4"
+            (click)="generatePdf()"
+          >
+            Generar Pdf de resultados
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
