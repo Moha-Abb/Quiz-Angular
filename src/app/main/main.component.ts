@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { QuizService } from '../services/quiz.service';
 import { QuizComponent } from '../quiz/quiz.component';
 import { ResultComponent } from '../result/result.component';
-
+import { AuthService } from '../services/auth.service'
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -21,7 +21,7 @@ export class MainComponent {
   @ViewChild('quiz', { static: true }) quiz!: QuizComponent;
   @ViewChild('result', { static: true }) result!: ResultComponent;
 
-  constructor(private quizService: QuizService) {
+  constructor(private quizService: QuizService, private authS: AuthService) {
     this.questionsLimit = 10;
     this.dificulty = 'Facil';
     this.showMainMenu = true;
@@ -53,5 +53,9 @@ export class MainComponent {
 
   toggleSpinner() {
     this.spinner = !this.spinner;
+  }
+
+  logOut() {
+    this.authS.logOut()
   }
 }

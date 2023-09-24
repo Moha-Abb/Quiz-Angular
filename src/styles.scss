@@ -17,12 +17,16 @@ $enable-shadows: true;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+body{
+    background-image: url('./assets/img/img.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
 
 #quiz {
     font-family: 'Consolas';
-    background-image: url('./assets/img/image_bZA.png');
-    background-size: cover;
-    background-position: center;
+   
 }
 
 #quiz::before {
@@ -32,7 +36,6 @@ $enable-shadows: true;
     right: 0;
     bottom: 0;
     top: 0;
-    background: rgba(47, 103, 177, 0.6);
 }
 
 .quiz-form {

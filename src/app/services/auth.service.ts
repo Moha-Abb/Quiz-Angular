@@ -21,8 +21,9 @@ export class AuthService {
   }
 
   signInWithGoogle() {
-    console.log('serivce');
-    return this.authf.signInWithPopup(new GoogleAuthProvider()).then(() => {
+    return this.authf.signInWithPopup(new GoogleAuthProvider()).then((res) => {
+      console.log(res.user)
+      localStorage.setItem('user', JSON.stringify(res.user));
       this.observeUserState();
     });
   }
@@ -36,6 +37,7 @@ export class AuthService {
       .signInWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
         this.userData = userCredential.user;
+
         this.observeUserState();
       })
       .catch((error) => {

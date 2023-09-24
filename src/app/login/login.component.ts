@@ -128,10 +128,11 @@ export class LoginComponent {
     this.authService
       .signInWithGoogle()
       .then((res: any) => {
-        this.router.navigateByUrl('main');
       })
       .catch((err: any) => {
         console.log(err);
       });
   }
+
+
 }
